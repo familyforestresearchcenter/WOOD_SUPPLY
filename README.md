@@ -1,5 +1,5 @@
 # WOOD_SUPPLY
-SQL and R scripts used to query, summarize, and analyze data associated with the "Supply of Wood from America’s Family Forests: Combining Biophysical, Social, and Economic Factors" journal article,
+SQL and R scripts used to query, summarize, and analyze data associated with the Supply of Wood from America’s Family Forests: Combining Biophysical, Social, and Economic Factors journal article,
 
 Below is a list of folders and files in this repository, along with brief descriptions of the files.
 
@@ -7,9 +7,107 @@ Comments or questions can be sent to Brett Butler, USDA Forest Service, Northern
 
 
 - R
-	- 
+	- BIVARIATE
+		- REMOVALS_BIVARIATES.R # Analyze bivariate summaries
+	- DATA
+		- BIVARIATE_SUMMARY_SQL.R # Run SQL queries to generate bivariate summaries
+	  - LAND_COVER.R # Merge land cover data
+	  - MILL_INDEX.R # Generate mill indices
+	  - POP_DENS.R # Get population density
+	- MODELS
+		- HRV_CART_MODEL.R # Generate and summarize classification tree model
+	  - HRV_LOGISTIC_MODEL.R # Generate and summarize logistic regression model
+	  - HRV_MODEL_DATA_SUMMARY.R # Summarize molde dataset
+	  - HRV_MODEL_DATA.R # Merge and recode data to form model dataset
+	- OTHER
+	 - REMOVALS_BY_OWNCD.R # Summarize removals by ownership group
+	 - REMOVALS_BY_TREATMENT.R # Summarize removals by treatment
+- README.md # This file
 - SQL
-	- 
-	-
-
-1] "R/BIVARIATE/REMOVALS_BIVARIATES.R"                [2] "R/DATA/BIVARIATE_SUMMARY_SQL.R"                   [3] "R/DATA/LAND_COVER.R"                              [4] "R/DATA/MILL_INDEX.R"                              [5] "R/DATA/POP_DENS.R"                                [6] "R/MODELS/HRV_CART_MODEL.R"                        [7] "R/MODELS/HRV_LOGISTIC_MODEL.R"                    [8] "R/MODELS/HRV_MODEL_DATA_SUMMARY.R"                [9] "R/MODELS/HRV_MODEL_DATA.R"                       [10] "R/OTHER/COMPARE_TRT.R"                           [11] "R/OTHER/REMOVALS_BY_OWNCD.R"                     [12] "R/OTHER/REMOVALS_BY_TREATMENT.R"                 [13] "README.md"                                       [14] "SQL/BIVARIATE/FORESTAREA_FFO.sql"                [15] "SQL/BIVARIATE/FORESTAREA_LC_AG.sql"              [16] "SQL/BIVARIATE/FORESTAREA_LC_FOREST.sql"          [17] "SQL/BIVARIATE/FORESTAREA_LC_URBAN.sql"           [18] "SQL/BIVARIATE/FORESTAREA_MILL_PULP.sql"          [19] "SQL/BIVARIATE/FORESTAREA_MILL_SAW.sql"           [20] "SQL/BIVARIATE/FORESTAREA_OWN_AGE.sql"            [21] "SQL/BIVARIATE/FORESTAREA_OWN_EDU.sql"            [22] "SQL/BIVARIATE/FORESTAREA_OWN_FARM.sql"           [23] "SQL/BIVARIATE/FORESTAREA_OWN_HOME.sql"           [24] "SQL/BIVARIATE/FORESTAREA_OWN_INC.sql"            [25] "SQL/BIVARIATE/FORESTAREA_OWN_MANAGE_ADVICE.sql"  [26] "SQL/BIVARIATE/FORESTAREA_OWN_MANAGE_PLAN.sql"    [27] "SQL/BIVARIATE/FORESTAREA_OWN_OBJ_NAT.sql"        [28] "SQL/BIVARIATE/FORESTAREA_OWN_OBJ_TIM.sql"        [29] "SQL/BIVARIATE/FORESTAREA_OWN_PROGRAM_ANY.sql"    [30] "SQL/BIVARIATE/FORESTAREA_OWN_PROGRAM_CERT.sql"   [31] "SQL/BIVARIATE/FORESTAREA_OWN_PROGRAM_COST.sql"   [32] "SQL/BIVARIATE/FORESTAREA_OWN_PROGRAM_TAX.sql"    [33] "SQL/BIVARIATE/FORESTAREA_OWN_SIZE.sql"           [34] "SQL/BIVARIATE/FORESTAREA_OWN_TENURE.sql"         [35] "SQL/BIVARIATE/FORESTAREA_PLOT_ECO.sql"           [36] "SQL/BIVARIATE/FORESTAREA_PLOT_REGION.sql"        [37] "SQL/BIVARIATE/FORESTAREA_PLOT_REMPER.sql"        [38] "SQL/BIVARIATE/FORESTAREA_PLOT_ROAD.sql"          [39] "SQL/BIVARIATE/FORESTAREA_POP_DENS.sql"           [40] "SQL/BIVARIATE/FORESTAREA_STAND_BA.sql"           [41] "SQL/BIVARIATE/FORESTAREA_STAND_ORIGIN.sql"       [42] "SQL/BIVARIATE/FORESTAREA_STAND_PRODUCTIVITY.sql" [43] "SQL/BIVARIATE/FORESTAREA_STAND_SIZE.sql"         [44] "SQL/BIVARIATE/FORESTAREA_STAND_TYPE.sql"         [45] "SQL/BIVARIATE/NWOS_JOIN_TEST.sql"                [46] "SQL/BIVARIATE/REMOVALS_EVALGRP.sql"              [47] "SQL/BIVARIATE/REMOVALS_LC_AG.sql"                [48] "SQL/BIVARIATE/REMOVALS_LC_FOREST.sql"            [49] "SQL/BIVARIATE/REMOVALS_LC_URBAN.sql"             [50] "SQL/BIVARIATE/REMOVALS_MILL_PULP.sql"            [51] "SQL/BIVARIATE/REMOVALS_MILL_SAW.sql"             [52] "SQL/BIVARIATE/REMOVALS_OWN_AGE.sql"              [53] "SQL/BIVARIATE/REMOVALS_OWN_EDU.sql"              [54] "SQL/BIVARIATE/REMOVALS_OWN_FARM.sql"             [55] "SQL/BIVARIATE/REMOVALS_OWN_HOME.sql"             [56] "SQL/BIVARIATE/REMOVALS_OWN_INC.sql"              [57] "SQL/BIVARIATE/REMOVALS_OWN_MANAGE_ADVICE.sql"    [58] "SQL/BIVARIATE/REMOVALS_OWN_MANAGE_PLAN.sql"      [59] "SQL/BIVARIATE/REMOVALS_OWN_OBJ_NAT.sql"          [60] "SQL/BIVARIATE/REMOVALS_OWN_OBJ_TIM.sql"          [61] "SQL/BIVARIATE/REMOVALS_OWN_PROGRAM_ANY.sql"      [62] "SQL/BIVARIATE/REMOVALS_OWN_PROGRAM_CERT.sql"     [63] "SQL/BIVARIATE/REMOVALS_OWN_PROGRAM_COST.sql"     [64] "SQL/BIVARIATE/REMOVALS_OWN_PROGRAM_TAX.sql"      [65] "SQL/BIVARIATE/REMOVALS_OWN_SIZE.sql"             [66] "SQL/BIVARIATE/REMOVALS_OWN_TENURE.sql"           [67] "SQL/BIVARIATE/REMOVALS_PLANTED.sql"              [68] "SQL/BIVARIATE/REMOVALS_PLOT_ECO.sql"             [69] "SQL/BIVARIATE/REMOVALS_PLOT_REGION.sql"          [70] "SQL/BIVARIATE/REMOVALS_PLOT_REMPER.sql"          [71] "SQL/BIVARIATE/REMOVALS_PLOT_ROAD.sql"            [72] "SQL/BIVARIATE/REMOVALS_POP_DENS.sql"             [73] "SQL/BIVARIATE/REMOVALS_REMPER.sql"               [74] "SQL/BIVARIATE/REMOVALS_SITE.sql"                 [75] "SQL/BIVARIATE/REMOVALS_SIZE_STAND.sql"           [76] "SQL/BIVARIATE/REMOVALS_STAND_BA.sql"             [77] "SQL/BIVARIATE/REMOVALS_STAND_ORIGIN.sql"         [78] "SQL/BIVARIATE/REMOVALS_STAND_PRODUCTIVITY.sql"   [79] "SQL/BIVARIATE/REMOVALS_STAND_SIZE.sql"           [80] "SQL/BIVARIATE/REMOVALS_STAND_TYPE.sql"           [81] "SQL/BIVARIATE/REMOVALS_TRT.sql"                  [82] "SQL/BIVARIATE/REMOVALS_TYPE.sql"                 [83] "SQL/LAND_COVER/CREATE LAND_COVER Table.sql"      [84] "SQL/LAND_COVER/LAND_COVER.def"                   [85] "SQL/MILLS/CREATE MILL_INDEX Table.sql"           [86] "SQL/MILLS/CREATE PULP_INDEX Table.sql"           [87] "SQL/MILLS/IMPORT_PULP_INDEX.def"                 [88] "SQL/MILLS/IMPORT_PULP_INDEX.sql"                 [89] "SQL/MILLS/MILL_INDEX.def"                        [90] "SQL/MODEL/MILL_LOCATION.sql"                     [91] "SQL/MODEL/NWOS_QUEST_METADATA.sql"               [92] "SQL/MODEL/NWOS.sql"                              [93] "SQL/MODEL/NWOSYR.sql"                            [94] "SQL/MODEL/PLOT.sql"                              [95] "SQL/OWNCD/FORESTAREA_OWNCD.sql"                  [96] "SQL/OWNCD/REMOVALS_OWNCD.sql"                    [97] "SQL/PLOTS/PLOT_COUNT.sql"                        [98] "SQL/PLOTS/PLOT_STATS.sql"                        [99] "SQL/PLOTS/PLOT_YEAR.sql"                        [100] "SQL/PLOTS/PLOTS_LAT_LON.sql"                    [101] "SQL/POP_DENS/CREATE POP_DENS Table.sql"         [102] "SQL/POP_DENS/POP_DENS.def"  
+	- BIVARIATE # SQL queries for summarizing forest area and removals by specified variables
+		- FORESTAREA_FFO.sql
+ 		- FORESTAREA_LC_AG.sql
+ 		- FORESTAREA_LC_FOREST.sql
+ 		- FORESTAREA_LC_URBAN.sql
+ 		- FORESTAREA_MILL_PULP.sql
+ 		- FORESTAREA_MILL_SAW.sql
+ 		- FORESTAREA_OWN_AGE.sql
+ 		- FORESTAREA_OWN_EDU.sql
+ 		- FORESTAREA_OWN_FARM.sql
+ 		- FORESTAREA_OWN_HOME.sql
+ 		- FORESTAREA_OWN_INC.sql
+ 		- FORESTAREA_OWN_MANAGE_ADVICE.sql
+ 		- FORESTAREA_OWN_MANAGE_PLAN.sql
+ 		- FORESTAREA_OWN_OBJ_NAT.sql
+ 		- FORESTAREA_OWN_OBJ_TIM.sql
+ 		- FORESTAREA_OWN_PROGRAM_ANY.sql
+ 		- FORESTAREA_OWN_PROGRAM_CERT.sql
+ 		- FORESTAREA_OWN_PROGRAM_COST.sql
+ 		- FORESTAREA_OWN_PROGRAM_TAX.sql
+ 		- FORESTAREA_OWN_SIZE.sql  
+ 		- FORESTAREA_OWN_TENURE.sql
+ 		- FORESTAREA_PLOT_ECO.sql
+ 		- FORESTAREA_PLOT_REGION.sql
+ 		- FORESTAREA_PLOT_REMPER.sql
+ 		- FORESTAREA_PLOT_ROAD.sql
+ 		- FORESTAREA_POP_DENS.sql
+ 		- FORESTAREA_STAND_BA.sql
+ 		- FORESTAREA_STAND_ORIGIN.sql
+ 		- FORESTAREA_STAND_PRODUCTIVITY.sql
+ 		- FORESTAREA_STAND_SIZE.sql
+ 		- FORESTAREA_STAND_TYPE.sql
+ 		- REMOVALS_EVALGRP.sql
+ 		- REMOVALS_LC_AG.sql
+ 		- REMOVALS_LC_FOREST.sql
+ 		- REMOVALS_LC_URBAN.sql
+ 		- REMOVALS_MILL_PULP.sql
+ 		- REMOVALS_MILL_SAW.sql
+ 		- REMOVALS_OWN_AGE.sql
+ 		- REMOVALS_OWN_EDU.sql
+ 		- REMOVALS_OWN_FARM.sql
+ 		- REMOVALS_OWN_HOME.sql
+ 		- REMOVALS_OWN_INC.sql
+ 		- REMOVALS_OWN_MANAGE_ADVICE.sql
+ 		- REMOVALS_OWN_MANAGE_PLAN.sql
+ 		- REMOVALS_OWN_OBJ_NAT.sql
+ 		- REMOVALS_OWN_OBJ_TIM.sql
+ 		- REMOVALS_OWN_PROGRAM_ANY.sql
+ 		- REMOVALS_OWN_PROGRAM_CERT.sql  
+ 		- REMOVALS_OWN_PROGRAM_COST.sql  
+ 		- REMOVALS_OWN_PROGRAM_TAX.sql
+ 		- REMOVALS_OWN_SIZE.sql
+ 		- REMOVALS_OWN_TENURE.sql
+ 		- REMOVALS_PLANTED.sql
+ 		- REMOVALS_PLOT_ECO.sql
+ 		- REMOVALS_PLOT_REGION.sql
+ 		- REMOVALS_PLOT_REMPER.sql
+ 		- REMOVALS_PLOT_ROAD.sql
+ 		- REMOVALS_POP_DENS.sql
+ 		- REMOVALS_REMPER.sql
+ 		- REMOVALS_SITE.sql  
+ 		- REMOVALS_SIZE_STAND.sql
+ 		- REMOVALS_STAND_BA.sql
+ 		- REMOVALS_STAND_ORIGIN.sql
+ 		- REMOVALS_STAND_PRODUCTIVITY.sql
+ 		- REMOVALS_STAND_SIZE.sql
+ 		- REMOVALS_STAND_TYPE.sql
+ 		- REMOVALS_TYPE.sql
+	- LAND_COVER
+		- CREATE LAND_COVER Table.sql # Create Oracle table for storing land cover data
+	- MILLS
+		- CREATE MILL_INDEX Table.sql # Create Oracle table for storing mill index data
+	- MODEL
+		- NWOS.sql # Get NWOS data for multivariate models
+		- NWOSYR.sql # Get NWOS year data
+		- PLOT.sql # Get plot data for multivariate models
+	- OWNCD
+		- FORESTAREA_OWNCD.sql # Summarize forest area by ownership group
+		- REMOVALS_OWNCD.sql  # Summarize removals by ownership group
+	- OTHER
+		- REMOVALS_TRT.sql # Summarize removals by treatment
+	- PLOTS
+		- PLOT_COUNT.sql # Count number of plots
+		- PLOT_STATS.sql # Generate general plot statistics
+		- PLOT_YEAR.sql # Summarize plot years
+	- POP_DENS
+		- CREATE POP_DENS Table.sql # Create Oracle table for storing population density data
