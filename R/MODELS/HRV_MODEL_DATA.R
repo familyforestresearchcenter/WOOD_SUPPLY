@@ -51,7 +51,6 @@ model.data <- plot %>%
   left_join(pop.dens, by = "PLT_CN") %>%
   left_join(state, by = "STATECD") %>%
   left_join(eco.region, by = c("ECOSUBCD" = "SUBSECTION"))
-model.data
 
 #### Recode Variables ####
 model.data <- model.data %>%
@@ -66,14 +65,13 @@ model.data <- model.data %>%
          MILL_PULP = PULP_INDEX,
          MILL_SAW = SAW_INDEX,
          OWN_AGE = if_else(OWN1_AGE >= 18, OWN1_AGE, as.numeric(NA)), 
-         OWN_AGE_BIN = factor(case_when(OWN1_EDU %in% c(1, 2, 3) ~ 0,
+         OWN_EDU = OWN1_EDU,
+         OWN_EDU_BIN = factor(case_when(OWN1_EDU %in% c(1, 2, 3) ~ 0,
                                     OWN1_EDU %in% c(4, 5, 6) ~ 1),
                           levels = c(0, 1), labels = c("No", "Yes")),
          OWN_FARM  = recode.factor(FARM),
          OWN_HOME  = recode.factor(HOME),
-         OWN_INC = factor(case_when(INC_WOOD >= 0 & INC_WOOD < 5 ~ 0,
-                                    INC_WOOD >= 0 ~ 1),
-                          levels = c(0, 1), labels = c("No", "Yes")),  
+         OWN_INC = INC_WOOD,  
          OWN_INC_BIN = factor(case_when(INC_WOOD >= 0 & INC_WOOD < 5 ~ 0,
                                     INC_WOOD >= 0 ~ 1),
                           levels = c(0, 1), labels = c("No", "Yes")), 
@@ -94,7 +92,7 @@ model.data <- model.data %>%
                             conv_unit(AC_WOOD, "acre", "hectare"), 
                             as.numeric(NA)),
          OWN_SIZE_LOG = log(OWN_SIZE),
-         OWN_TENURE = if_else(ACQ_YEAR - NWOSYR <= 75, ACQ_YEAR - NWOSYR,
+         OWN_TENURE = if_else(!is.na(ACQ_YEAR) & NWOSYR - ACQ_YEAR <= 75, NWOSYR - ACQ_YEAR,
                               as.numeric(NA)),
          PLOT_ECO = PROVINCE,
          PLOT_POP_DENSITY = POP_DENS,
@@ -119,16 +117,18 @@ model.data <- model.data %>%
          STAND_TYPE = factor(case_when(FORTYPCD %in% 100:399 ~ "Soft", 
                                        FORTYPCD %in% 400:998 ~ "Hard"),
                              levels = c("Hard", "Soft"))) %>%
-  select(HRV, 
+  select(RMV, HRV, 
          LC_AG, LC_FOREST, LC_URBAN,
          MILL_PULP, MILL_SAW,
-         OWN_AGE, OWN_AGE_BIN, OWN_FARM, OWN_HOME, OWN_INC, OWN_INC_BIN,
+         OWN_AGE, OWN_EDU, OWN_EDU_BIN, OWN_FARM, OWN_HOME,
+         OWN_INC, OWN_INC_BIN,
          OWN_MANAGE_ADVICE, OWN_MANAGE_PLAN, OWN_PROGRAM, 
          OWN_PROGRAM_CERT, OWN_PROGRAM_COST, OWN_PROGRAM_TAX,
          OWN_OBJ_NAT, OWN_OBJ_TIM, OWN_SIZE, OWN_SIZE_LOG, OWN_TENURE,
          PLOT_ECO, PLOT_POP_DENSITY, PLOT_REGION, PLOT_ROAD, PLOT_REMPER,
          STAND_BA, STAND_BA_SQ, STAND_ORIGIN, STAND_PLOT_PROD, 
-         STAND_SIZE, STAND_TYPE)
+         STAND_SIZE, STAND_TYPE) %>%
+  filter(complete.cases(.))
 summary(model.data)
 
 #### Export Data ####

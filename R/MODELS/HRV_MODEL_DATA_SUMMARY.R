@@ -21,7 +21,8 @@ summary.numeric.text <- function(x, min.value = NA) {
                                   pull(!!sym(x)))[c(1:3, 5:6)],
                         1, format = "f")), collapse = "; ")}
 #### Import Data ####
-model.data <- readRDS("DATA/MODEL/WOOD_SUPPLY_MODEL_DATA.RDS")
+model.data <- readRDS("DATA/MODEL/WOOD_SUPPLY_MODEL_DATA.RDS") %>%
+  mutate(OWN_TENURE_LOG = log(OWN_TENURE))
 
 #### Summarize ####
 names(model.data)
@@ -159,12 +160,19 @@ data.summary <- data.summary %>%
 
 #### OWN_TENURE ####
 summary(model.data$OWN_TENURE)
+# hist(model.data$OWN_TENURE)
+summary(model.data$OWN_TENURE_LOG)
+# hist(model.data$OWN_TENURE_LOG)
 data.summary <- data.summary %>%
   bind_rows(tibble(VARIABLE = "OWN_TENURE",
                    SUMMARY = summary.numeric.text("OWN_TENURE")))
 
 #### PLOT_ECO ####
-summary.factor("PLOT_ECO")
+summary.factor("PLOT_ECO") %>%
+  arrange(desc(prop))
+summary.factor("PLOT_ECO") %>%
+  slice_max(prop, n = 5) %>%
+  summarize(sum(prop))
 data.summary <- data.summary %>%
   bind_rows(tibble(VARIABLE = "PLOT_ECO",
                    SUMMARY = summary.factor.text("PLOT_ECO")))

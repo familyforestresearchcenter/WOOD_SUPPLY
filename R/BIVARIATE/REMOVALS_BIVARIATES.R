@@ -433,32 +433,31 @@ rmv.tenure.plot <- rmv.plot(rmv.tenure, "T. Owner - tenure", "Years")
 rmv.t.test(rmv.tenure, "10-24", "50+")
 
 #### PLOT_ECO ####
+# "231", "232", "212", "223", "221"
+
 area.eco <- area.x("DATA/BIVARIATE/FORESTAREA_PLOT_ECO.csv",
-                   levels = c("232", "231", "M242", "212", "221", "Other"),
-                   values = list("232", "231", "M242", "212", "221",  
-                                 c("211", "222", "223", "234", "242", 
+                   levels = c("232", "231", "212", "221", "223", "Other"),
+                   values = list("232", "231", "212", "221", "223",
+                                 c("211", "222", "234", "242", 
                                    "251", "255", "261", "262", "263", 
                                    "315", "321", "322", "331", "332", 
                                    "341", "342", "411", "M211", "M221", 
-                                   "M223", "M231", "M261", "M262", "M313", 
+                                   "M223", "M231", "M242", "M261", "M262", "M313", 
                                    "M332", "M333", "M334")))
 rmv.eco <- rmv.x(file = "DATA/BIVARIATE/REMOVALS_PLOT_ECO.csv", area.eco,
-                 levels = c("232", "231", "M242", "212", "221", "Other"),
-                 values = list("232", "231", "M242", "212", "221", 
-                               c("211", "222", "223", "234", "242", 
+                 levels = c("232", "231", "212", "221", "223", "Other"),
+                 values = list("232", "231", "212", "221", "223",
+                               c("211", "222", "234", "242", 
                                  "251", "255", "261", "262", "263", 
                                  "315", "321", "322", "331", "332", 
                                  "341", "342", "411", "M211", "M221", 
-                                 "M223", "M231", "M261", "M262", "M313", 
+                                 "M223", "M231", "M242", "M261", "M262", "M313", 
                                  "M332", "M333", "M334")))
 rmv.eco.plot <- rmv.plot(rmv.eco, "U. Plot - ecoregion province") +
   annotate( "text", label = "5.4\n(SE=0.02)",
             x = 1, y = 135, size = 2, colour = "red")  +
   annotate( "text", label = "3.5\n(SE=0.01)",
-            x = 2, y = 135, size = 2, colour = "red") +
-  annotate( "text", label = "57.7\n(SE=31.1)",
-            x = 3, y = 135, size = 2, colour = "red")
-
+            x = 2, y = 135, size = 2, colour = "red")
 
 #### PLOT_POP_DENSITY ####
 area.pop.dens <- area.x("DATA/BIVARIATE/FORESTAREA_POP_DENS.csv",

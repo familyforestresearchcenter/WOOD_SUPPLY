@@ -7,7 +7,7 @@ library(tidyverse)
 library(car)
 library(ResourceSelection)
 library(performance)
-library(effects)
+# library(effects)
 
 #### Import Data ####
 model.data <- readRDS("DATA/MODEL/WOOD_SUPPLY_MODEL_DATA.RDS") %>%
@@ -18,7 +18,7 @@ hrv.logistic <- glm(HRV ~
                       LC_FOREST + 
                       MILL_SAW +
                       OWN_AGE + OWN_HOME +
-                      OWN_INC + OWN_MANAGE_ADVICE + OWN_MANAGE_PLAN + 
+                      OWN_INC + OWN_MANAGE_ADVICE + 
                       OWN_OBJ_TIM + OWN_PROGRAM + OWN_SIZE_LOG + 
                       PLOT_POP_DENSITY + PLOT_REGION +
                       PLOT_REMPER + STAND_BA + STAND_ORIGIN + STAND_TYPE,
@@ -45,6 +45,6 @@ vif(hrv.logistic)
 
 #### Effect Plots ####
 # https://strengejacke.github.io/ggeffects/
-plot(allEffects(hrv.logistic))
+# plot(allEffects(hrv.logistic))
 
 
