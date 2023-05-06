@@ -1,0 +1,15 @@
+
+1. Log into fiadb01p using [anl_nrs_analysis] profile
+
+2. Create new table
+/*drop table PULP_INDEX;*/
+create table PULP_INDEX (PLT_CN varchar2(15), PULP_INDEX NUMBER(12,4));
+
+3. Load data
+Load data using Tools > Text Importer
+
+4. Grant access
+grant select on PULP_INDEX to bbutler01;
+select * from PULP_INDEX;
+
+5. Log in using default profile
